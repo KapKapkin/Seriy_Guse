@@ -1,5 +1,6 @@
 #ifndef MYTCPSERVER_H
 #define MYTCPSERVER_H
+
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
@@ -16,13 +17,14 @@ class MyTcpServer : public QObject
 public:
     explicit MyTcpServer(QObject *parent = nullptr);
     ~MyTcpServer();
+
 public slots:
     void slotNewConnection();
     void slotClientDisconnected();
     void slotServerRead();
 private:
     QTcpServer * mTcpServer;
-    QMap<int, QTcpSocket*> mTcpSocket;
+    QMap<int, QTcpSocket*> mTcpSocket; // Переменная для хранения подключенных сокетов
     int server_status;
 };
 #endif // MYTCPSERVER_H

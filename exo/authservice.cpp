@@ -67,25 +67,25 @@ void AuthService::processRequest(QTcpSocket *socket, const QString &request)
 }
 
 
-bool AuthService::authenticate(const QString &login, const QString &password)
+bool AuthService::authenticate(const QString &, const QString &)
 {
     // проверка пароля
     return true;
 }
 
-bool AuthService::registerUser(const QString &login, const QString &password, const QString &email)
+bool AuthService::registerUser(const QString &, const QString &, const QString &)
 {
     // регистрация
     return true;
 }
 
-QString AuthService::getUserStats(const QString &login)
+QString AuthService::getUserStats(const QString &)
 {
     // получение статистики
     return "";
 }
 
-bool AuthService::checkTask(const QString &login, const QString &taskNumber, const QString &variant, const QString &answer)
+bool AuthService::checkTask(const QString &, const QString &, const QString &, const QString &)
 {
     // проверка введенных данных
     return true;
