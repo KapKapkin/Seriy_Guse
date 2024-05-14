@@ -1,35 +1,62 @@
 #include "databaseservice.h"
 
-DatabaseService::DatabaseService(QObject *parent) : QObject(parent)
-{}
-
-bool DatabaseService::connectToDatabase()
+Database::Database(QObject *parent) : QObject(parent) // вызывается в getInstance, если еще нет подключения
 {
-    // подключение к бд
-    return true;
-}
-/*
-bool DatabaseService::authenticate(const QString &login, const QString &password)
-{
-    // Подключение к базе данных и выполнение запроса для авторизации
-    return true;
+    this->connect(); //подключение к бд
 }
 
-bool DatabaseService::registerUser(const QString &login, const QString &password, const QString &email)
+Database * Database::p_instance = nullptr;
+DatabaseDestroyer Database::destroyer;
+
+DatabaseDestroyer::~DatabaseDestroyer()
 {
-    // Подключение к базе данных и выполнение запроса для регистрации пользователя
-    return true;
+    delete p_instance;
 }
 
-QString DatabaseService::getUserStats(const QString &login)
+Database::~Database()
 {
-    // Подключение к базе данных и выполнение запроса для получения статистики пользователя
-    // Возвращается строка с данными о статистике пользователя
-    return "";
+    if (db.isOpen())
+        disconnect();
+    if (p_instance)
+        delete p_instance;
 }
 
-bool DatabaseService::checkTask(const QString &login, const QString &taskNumber, const QString &variant, const QString &answer)
+Database* Database::getInstance()
 {
-    // Подключение к базе данных и выполнение запроса для проверки решения задачи
-    return true;
-}*/
+    if (!p_instance)
+    {
+        p_instance = new Database();
+        destroyer.initialize(p_instance);
+    }
+    return p_instance;
+}
+
+
+void Database::connect() {
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./Test.db"); // Test.db в каталоге сборки (путь к нему можно настроить во вкладке проекты)
+
+    if(db.open())
+    {
+        qDebug("open");
+    }
+    else
+    {
+        qDebug("no open");
+    }
+}
+
+QSqlQuery Database::query(QString queryStr) //отправка sql запросов
+{
+    QSqlQuery myquery;
+    if(myquery.prepare(queryStr))
+    {
+        myquery.exec();
+    }
+    return myquery;
+}
+
+void Database::disconnect()
+{
+    db.close();
+}
