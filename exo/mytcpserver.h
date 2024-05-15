@@ -10,6 +10,7 @@
 #include <QDebug>
 
 #include <QMap> // ассоциативный массив
+#include "server_function.h"
 
 class MyTcpServer : public QObject
 {

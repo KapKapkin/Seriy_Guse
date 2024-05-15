@@ -23,9 +23,9 @@ void RequestHandler::handleRequest(QTcpSocket *socket, const QString &request)
             QString password = parts[2];
 
             if (authService.authenticate(login, password))
-                socket->write("auth+&" + login.toUtf8());
+                socket->write("auth&+&" + login.toUtf8());
             else
-                socket->write("auth-");
+                socket->write("auth&-");
         }
     }
     else if (command == "reg")
