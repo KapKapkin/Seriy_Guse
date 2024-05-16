@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui_task1 = new Graf_min;
     ui_task2 = new Halving_method;
+    ui_task5 = new Chord_method;
     ui_result = new Result_client;
 }
 
@@ -26,17 +27,29 @@ void MainWindow::on_pushButton_exit_clicked()
 void MainWindow::on_pushButton_task1_clicked()
 {
     ui_task1->show();
+    ui_task1->task1_login(ui->label_login->text());
 }
 
 
 void MainWindow::on_pushButton_task2_clicked()
 {
     ui_task2->show();
+    ui_task2->task2_login(ui->label_login->text());
+}
+
+void MainWindow::on_pushButton_task5_clicked()
+{
+    ui_task5->show();
+    ui_task5->task5_login(ui->label_login->text());
 }
 
 
 void MainWindow::on_pushButton_result_clicked()
 {
     ui_result->show();
+    ui_result->result_login(ui->label_login->text());
 }
 
+void MainWindow::main_login(QString login) {
+    ui->label_login->setText(login.toUtf8());
+}

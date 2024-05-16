@@ -11,11 +11,17 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+#include "task1.h"
+#include "task2.h"
+#include "task3.h"
+#include "task4.h"
+#include "task5.h"
+
 QByteArray parse(QString request);
-bool authenticate(const QString &login, const QString &pass);
-bool registerUser(const QString &, const QString &, const QString &);
-QString getUserStats(const QString &);
-bool checkTask(const QString &, const QString &, const QString &, const QString &);
+QByteArray authenticate(const QString &login, const QString &pass);
+QByteArray registerUser(const QString &login, const QString &pass, const QString &email);
+QByteArray getUserStats(const QString &login);
+QByteArray checkTask(const QString &task_number, const QString &variant, const QString &answer_client, const QString &login);
 
 
 

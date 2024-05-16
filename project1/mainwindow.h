@@ -5,6 +5,7 @@
 #include "halving_method.h"
 #include "graf_min.h"
 #include "result_client.h"
+#include "chord_method.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void main_login(QString login);
 
 private slots:
     void on_pushButton_exit_clicked();
@@ -30,15 +32,15 @@ private slots:
 
     void on_pushButton_result_clicked();
 
+    void on_pushButton_task5_clicked();
+
 private:
     Ui::MainWindow *ui;
     Graf_min *ui_task1;
     Halving_method *ui_task2;
+    Chord_method *ui_task5;
     Result_client *ui_result;
-signals:
-    void is_main_task1();
-    void is_main_task2();
-    void is_main_result();
+
 
 };
 #endif // MAINWINDOW_H

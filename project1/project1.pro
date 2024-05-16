@@ -9,7 +9,9 @@ CONFIG += c++17
 
 SOURCES += \
     authorization.cpp \
+    chord_method.cpp \
     funcforclient.cpp \
+    generate_for_variant.cpp \
     graf_min.cpp \
     halving_method.cpp \
     main.cpp \
@@ -19,7 +21,9 @@ SOURCES += \
 
 HEADERS += \
     authorization.h \
+    chord_method.h \
     funcforclient.h \
+    generate_for_variant.h \
     graf_min.h \
     halving_method.h \
     mainwindow.h \
@@ -28,6 +32,7 @@ HEADERS += \
 
 FORMS += \
     authorization.ui \
+    chord_method.ui \
     graf_min.ui \
     halving_method.ui \
     mainwindow.ui \

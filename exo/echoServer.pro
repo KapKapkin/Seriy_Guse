@@ -20,9 +20,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     databaseservice.cpp \
+    graf_min.cpp \
     main.cpp \
     mytcpserver.cpp \
-    server_function.cpp
+    server_function.cpp \
+    task1.cpp \
+    task2.cpp \
+    task3.cpp \
+    task4.cpp \
+    task5.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -31,5 +37,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     databaseservice.h \
+    graf_min.h \
     mytcpserver.h \
-    server_function.h
+    server_function.h \
+    task1.h \
+    task2.h \
+    task3.h \
+    task4.h \
+    task5.h

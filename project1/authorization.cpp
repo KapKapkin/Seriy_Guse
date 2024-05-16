@@ -27,6 +27,7 @@ void authorization::on_pushButton_authorization_clicked()
         this->close();
         ui_main = new MainWindow;
         ui_main->show();
+        ui_main->main_login(login);
     }
     else {
         QMessageBox::information(this, "Авторизация", "Введен неправильный логин или пароль.");
@@ -55,6 +56,7 @@ void authorization::on_pushButton_registration_clicked()
         this->close();
         ui_main = new MainWindow;
         ui_main->show();
+
     }
     else {
         QMessageBox::information(this, "Регистрация", "Регистрация не удалась.");
