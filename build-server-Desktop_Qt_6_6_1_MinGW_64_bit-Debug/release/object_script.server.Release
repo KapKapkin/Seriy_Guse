@@ -1,0 +1,12 @@
+release/databaseservice.o
+release/graf_min.o
+release/main.o
+release/mytcpserver.o
+release/server_function.o
+release/task1.o
+release/task2.o
+release/task3.o
+release/task4.o
+release/task5.o
+release/moc_databaseservice.o
+release/moc_mytcpserver.o
